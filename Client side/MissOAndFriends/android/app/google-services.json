@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "969470455560",
+    "firebase_url": "https://girl2girlwall-d9e28.firebaseio.com",
+    "project_id": "girl2girlwall-d9e28",
+    "storage_bucket": "girl2girlwall-d9e28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969470455560:android:2435f2a906346c57",
+        "android_client_info": {
+          "package_name": "com.missoandfriends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969470455560-tnvink8tuppmkvjst3gdj8mgstbapgqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo7oEmBKsTAafOyMPx3kuBaq_pOEq1ngg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

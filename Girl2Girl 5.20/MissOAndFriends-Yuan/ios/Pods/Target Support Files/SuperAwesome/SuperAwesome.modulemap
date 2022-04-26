@@ -1,0 +1,6 @@
+module SuperAwesome {
+  umbrella header "SuperAwesome-umbrella.h"
+
+  export *
+  module * { export * }
+}

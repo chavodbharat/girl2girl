@@ -1,0 +1,31 @@
+#! /bin/sh
+
+# this is init.d script
+# put it to /etc/init.d
+# register with command
+# sudo update-rc.d moaf defaults
+
+### BEGIN INIT INFO
+# Provides: moaf server
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: MOAF Server
+# Description: This file starts and stops moaf json server
+#
+### END INIT INFO
+
+case "$1" in
+ start)
+  /home/missoandfriends/moaf-json-api/start.sh
+  ;;
+ stop)
+  /home/missoandfriends/moaf-json-api/stop.sh
+  ;;
+ kill)
+  pid=$(cat "/home/missoandfriends/moaf-json-api/lock")
+  kill $pid
+  rm /home/missoandfriends/moaf-json-api/lock
+  ;;
+esac

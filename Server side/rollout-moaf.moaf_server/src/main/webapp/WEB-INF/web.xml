@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container, 
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html#d4e194 -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    	 xmlns="http://java.sun.com/xml/ns/javaee" 
+    	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    	 metadata-complete="true" 
+    	 version="2.5">  		
+   	<servlet>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+      		<param-name>cacheControl</param-name>
+      		<param-value>no-store,no-cache,must-revalidate</param-value>
+		</init-param>
+		<init-param>
+        	<param-name>jersey.config.server.provider.classnames</param-name>
+        	<param-value>org.glassfish.jersey.jackson.JacksonFeature;org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+    	</init-param>
+		<init-param>
+  			<param-name>jersey.config.server.provider.packages</param-name>
+  			<param-value>com.missoandfriends.jsonapi</param-value>
+		</init-param>
+		<init-param>
+  			<param-name>javax.ws.rs.ext.ExceptionMapper</param-name>
+  			<param-value>com.missoandfriends.jsonapi.exceptions.handlers</param-value>
+		</init-param>
+		<init-param>  
+  			<param-name>com.ws.rs.ext.ContainerResponseFilter</param-name>  
+  			<param-value>com.missoandfriends.jsonapi.controllers.filters.CharsetUTF8Filter</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  	<context-param>
+    	<param-name>environment</param-name>
+    	<param-value>debug</param-value>
+  	</context-param>
+  	<context-param>
+    	<param-name>skipAuth</param-name>
+    	<param-value>0</param-value>
+  	</context-param>
+  	<servlet-mapping>
+    	<servlet-name>Jersey Web Application</servlet-name>
+    	<url-pattern>/*</url-pattern>
+  	</servlet-mapping>
+  	<listener>
+    	<listener-class>com.missoandfriends.jsonapi.MOFServer</listener-class>
+  	</listener>
+</web-app>

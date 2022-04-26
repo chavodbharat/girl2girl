@@ -1,0 +1,1 @@
+mvn jetty:run-war -Dapp.properties=C:/Users/Stepan/l/workspace/missoandfriends-json-api/src/main/webapp/WEB-INF/application.properties -Dorg.eclipse.jetty.annotations.maxWait=120 -DskipTests

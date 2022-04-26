@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
+		<param name="file" value="logs/application.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="logs/application.log.%d.log.gz" />
+		</rollingPolicy>
+
+		<layout class="org.apache.log4j.PatternLayout">                        
+			<param name="ConversionPattern" value="%5p %d{ISO8601} [%t][%x] %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="PAYMENTS" class="org.apache.log4j.rolling.RollingFileAppender">
+		<param name="file" value="log/payments.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />		
+
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="log/payments.%d.log.gz" />
+		</rollingPolicy>
+
+		<layout class="org.apache.log4j.PatternLayout">                        
+			<param name="ConversionPattern" value="%5p %d{ISO8601} [%t][%x] %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="com.crossme.api.services.PaymentService">
+		<level value="debug" />
+		<appender-ref ref="PAYMENTS"/>
+	</logger>
+		
+	<root>
+	    <level value="DEBUG" />
+        <appender-ref ref="ROLL"/>
+    </root>    
+
+</log4j:configuration>

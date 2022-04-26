@@ -1,0 +1,6 @@
+module Pods_MissOAndFriends_MissOAndFriendsTests {
+  umbrella header "Pods-MissOAndFriends-MissOAndFriendsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
